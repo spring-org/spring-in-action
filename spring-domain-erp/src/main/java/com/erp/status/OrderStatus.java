@@ -1,5 +1,7 @@
 package com.erp.status;
 
+import java.util.Arrays;
+
 public enum OrderStatus {
 
     CONFIRM(0, "확인", "상품 주문 확인 상태"),
@@ -14,5 +16,12 @@ public enum OrderStatus {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public static OrderStatus findOf(String title) {
+        return Arrays.stream(OrderStatus.values())
+                .filter(orderStatus -> orderStatus.title.equals(title))
+                .findFirst()
+                .orElseThrow(IllegalStateException::new);
     }
 }

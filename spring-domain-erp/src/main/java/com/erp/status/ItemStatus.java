@@ -22,6 +22,6 @@ public enum ItemStatus {
         return Arrays.stream(ItemStatus.values())
                 .filter(itemStatus -> itemStatus.title.equals(title))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 상태 값 입니다."));
+                .orElseThrow(IllegalStateException::new);
     }
 }
