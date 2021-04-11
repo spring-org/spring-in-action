@@ -1,11 +1,11 @@
-package com.example;
+package com.erp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MvcApplication {
+public class ErpApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MvcApplication.class, args);
+        SpringApplication.run(ErpApplication.class, args);
     }
 }
