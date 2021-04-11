@@ -1,5 +1,7 @@
 package com.erp.status;
 
+import java.util.Arrays;
+
 public enum ItemStatus {
 
     REGISTERED(0, "등록", "상품 등록 상태"),
@@ -14,5 +16,12 @@ public enum ItemStatus {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public static ItemStatus findOf(String title) {
+        return Arrays.stream(ItemStatus.values())
+                .filter(itemStatus -> itemStatus.title.equals(title))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 상태 값 입니다."));
     }
 }
