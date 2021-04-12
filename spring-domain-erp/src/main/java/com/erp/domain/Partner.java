@@ -3,9 +3,11 @@ package com.erp.domain;
 import com.erp.status.PartnerStatus;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,7 +18,7 @@ public class Partner {
 
     private String name;
 
-    private PartnerStatus status;
+    private PartnerStatus status = PartnerStatus.UNREGISTERED;
 
     private String address;
 
@@ -28,12 +30,14 @@ public class Partner {
 
     private String ceoName;
 
+    @Getter
     private Category category;
 
+    @Getter
     private final List<Item> itemList = new ArrayList<>();
 
     @Builder
-    public Partner(Long id, String name, PartnerStatus status, String address, String callCenter, String partnerNumber, String businessNumber, String ceoName) {
+    public Partner(Long id, String name, PartnerStatus status, String address, String callCenter, String partnerNumber, String businessNumber, String ceoName, Category category) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -42,6 +46,11 @@ public class Partner {
         this.partnerNumber = partnerNumber;
         this.businessNumber = businessNumber;
         this.ceoName = ceoName;
+        this.category = category;
+    }
+
+    public void addItems(Item... items) {
+        itemList.addAll(Arrays.asList(items));
     }
 
     @Override

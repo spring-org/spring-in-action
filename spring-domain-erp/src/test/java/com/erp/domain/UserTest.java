@@ -35,7 +35,7 @@ class UserTest {
 
     @DisplayName("User 도메인 정보 수정 테스트")
     @Test
-    void testCase2() {
+    void changeInfo_수정_테스트() {
         String account = "seokrae";
         String password = "1234";
 

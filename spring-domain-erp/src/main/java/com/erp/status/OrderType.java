@@ -1,5 +1,7 @@
 package com.erp.status;
 
+import java.util.Arrays;
+
 public enum OrderType {
 
     ALL(0, "묶음", "모든 상품을 묶음 발송"),
@@ -13,5 +15,12 @@ public enum OrderType {
         this.id = id;
         this.title = title;
         this.description = description;
+    }
+
+    public static OrderType findOf(String title) {
+        return Arrays.stream(OrderType.values())
+                .filter(orderType -> orderType.title.equals(title))
+                .findFirst()
+                .orElseThrow(IllegalStateException::new);
     }
 }

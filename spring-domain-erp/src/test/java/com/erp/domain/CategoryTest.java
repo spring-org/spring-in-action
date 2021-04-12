@@ -1,5 +1,7 @@
 package com.erp.domain;
 
+import com.erp.domain.Category;
+import com.erp.domain.Partner;
 import com.erp.status.PartnerStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
