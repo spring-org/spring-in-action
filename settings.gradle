@@ -1,3 +1,5 @@
 rootProject.name = 'spring-in-action'
 include 'spring-mvc'
 include 'spring-domain-erp'
+include 'spring-servlet'
+
