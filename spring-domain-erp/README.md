@@ -25,3 +25,6 @@
 
 - OrderDetail(주문상세 도메인)
   - 상품 주문 상제 정보
+
+
+![ERP Diagram Refactor OOP 1](docs/erp_diagram_1.png)
