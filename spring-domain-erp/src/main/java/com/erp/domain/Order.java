@@ -35,7 +35,7 @@ public class Order {
 
     private User user;
 
-    private final OrderDetails orderDetailList = new OrderDetails();
+    private final OrderDetails details = new OrderDetails();
 
     @Builder
     public Order(Long id, OrderStatus status, OrderType orderType, String revAddress, String revName, PaymentType paymentType, User user) {
@@ -49,13 +49,14 @@ public class Order {
     }
 
     public void addOrderDetails(OrderDetail... orderDetails) {
-        orderDetailList.add(Arrays.asList(orderDetails));
+        details.add(Arrays.asList(orderDetails));
     }
 
     public Integer totalQuantity() {
-        return orderDetailList.totalQuantity();
+        return details.totalQuantity();
     }
+
     public BigDecimal totalPrice() {
-        return orderDetailList.totalPrice();
+        return details.totalPrice();
     }
 }

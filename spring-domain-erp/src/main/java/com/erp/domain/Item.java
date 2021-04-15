@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item {
@@ -23,7 +22,7 @@ public class Item {
 
     private Partner partner;
 
-    private List<OrderDetail> orderDetailList;
+    private final OrderDetails orderDetailList = new OrderDetails();
 
     @Builder
     public Item(Long id, ItemStatus status, String name, String title, String content, BigDecimal price, String brandName) {
