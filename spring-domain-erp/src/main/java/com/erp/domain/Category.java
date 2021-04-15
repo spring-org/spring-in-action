@@ -13,7 +13,7 @@ public class Category {
     private String type;
     private String title;
 
-    private final List<Partner> partnerList = new ArrayList<>();
+    private final Partners partnerList = new Partners();
 
     @Builder
     public Category(Long id, String type, String title) {
@@ -23,15 +23,15 @@ public class Category {
     }
 
     public void addPartner(final Partner... partner) {
-        partnerList.addAll(Arrays.asList(partner));
+        partnerList.add(Arrays.asList(partner));
     }
 
     public void removePartner(final Partner partner) {
         partnerList.remove(partner);
     }
 
-    public List<Partner> partners() {
-        return Collections.unmodifiableList(partnerList);
+    public Partners partners() {
+        return partnerList;
     }
 
     @Override

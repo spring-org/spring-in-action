@@ -64,7 +64,7 @@ class PartnerTest {
                 .build();
         // when
         partner.addItems(item1, item2);
-        List<Item> itemList = partner.getItemList();
+        Items itemList = partner.getItemList();
         // then
         assertThat(itemList.size()).isEqualTo(2);
     }

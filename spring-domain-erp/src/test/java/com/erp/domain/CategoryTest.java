@@ -38,12 +38,12 @@ class CategoryTest {
         category.addPartner(partner);
 
         // when
-        List<Partner> partners = category.partners();
+        Partners partners = category.partners();
         Partner expected = Partner.builder()
-                .id(1L).build();
+                .id(1L).name("seokrae").build();
 
         // then
-        assertThat(partners.get(0)).isEqualTo(expected);
+        assertThat(partners.contains(expected)).isTrue();
     }
 
     @DisplayName("카테고리에 파트너 추가 & 제거")
@@ -58,13 +58,13 @@ class CategoryTest {
 
         // when
         category.addPartner(partner);
-        List<Partner> partners = category.partners();
+        Partners partners = category.partners();
         // then
         assertThat(partners.size()).isEqualTo(1);
 
         // when
         category.removePartner(partner);
-        List<Partner> removedPartners = category.partners();
+        Partners removedPartners = category.partners();
         // then
         assertThat(removedPartners.size()).isZero();
     }

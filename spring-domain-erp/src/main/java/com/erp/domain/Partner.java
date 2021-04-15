@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -34,7 +32,7 @@ public class Partner {
     private Category category;
 
     @Getter
-    private final List<Item> itemList = new ArrayList<>();
+    private final Items itemList = new Items();
 
     @Builder
     public Partner(Long id, String name, PartnerStatus status, String address, String callCenter, String partnerNumber, String businessNumber, String ceoName, Category category) {
@@ -50,7 +48,7 @@ public class Partner {
     }
 
     public void addItems(Item... items) {
-        itemList.addAll(Arrays.asList(items));
+        itemList.add(Arrays.asList(items));
     }
 
     @Override

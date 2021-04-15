@@ -9,9 +9,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 주문 정보 테이블
@@ -37,7 +35,7 @@ public class Order {
 
     private User user;
 
-    private final List<OrderDetail> orderDetailList = new ArrayList<>();
+    private final OrderDetails orderDetailList = new OrderDetails();
 
     @Builder
     public Order(Long id, OrderStatus status, OrderType orderType, String revAddress, String revName, PaymentType paymentType, User user) {
@@ -51,17 +49,13 @@ public class Order {
     }
 
     public void addOrderDetails(OrderDetail... orderDetails) {
-        orderDetailList.addAll(Arrays.asList(orderDetails));
+        orderDetailList.add(Arrays.asList(orderDetails));
     }
 
-    public Integer getTotalQuantity() {
-        return orderDetailList.stream()
-                .mapToInt(OrderDetail::getQuantity)
-                .sum();
+    public Integer totalQuantity() {
+        return orderDetailList.totalQuantity();
     }
-    public BigDecimal getTotalPrice() {
-        return orderDetailList.stream()
-                .map(OrderDetail::getTotalPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    public BigDecimal totalPrice() {
+        return orderDetailList.totalPrice();
     }
 }

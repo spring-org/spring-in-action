@@ -39,7 +39,7 @@ class OrderTest {
                 .build();
         // when
         order.addOrderDetails(detail);
-        long totalPrice = order.getTotalPrice().longValue();
+        long totalPrice = order.totalPrice().longValue();
         // then
         assertThat(totalPrice).isEqualTo(20000);
     }
@@ -59,7 +59,7 @@ class OrderTest {
                 .build();
         // when
         order.addOrderDetails(detail, detail2);
-        Integer totalQuantity = order.getTotalQuantity();
+        Integer totalQuantity = order.totalQuantity();
         // then
         assertThat(totalQuantity).isEqualTo(25);
     }
