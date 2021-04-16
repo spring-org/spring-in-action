@@ -1,4 +1,44 @@
+### Hello
+
 GET http://localhost:8080/hello?username=seok
 
 
-###
+### 1. 파라미터 전송
+
+GET http://localhost:8080/request-param?username=hello&age=20
+
+### 1.1 파라미터 전송
+
+GET http://localhost:8080/request-param?username=hello&username=kim&age=20
+
+### String 방식으로 전달
+
+GET http://localhost:8080/request-body-string
+Content-Type: text/plain
+
+{
+"messageBody": "hello"
+}
+
+### 요청 헤더 확인
+
+GET http://localhost:8080/request-header
+
+
+### POST form 데이터
+
+POST http://localhost:8080/request-param
+Content-Type: application/x-www-form-urlencoded
+
+{
+"username": "hello", "age": 20
+}
+
+
+### JSON
+POST http://localhost:8080/request-body-json
+Content-Type: application/json
+
+{
+"username": "hello", "age": 20
+}
