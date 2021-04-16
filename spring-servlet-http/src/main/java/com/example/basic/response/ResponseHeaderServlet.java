@@ -56,6 +56,6 @@ public class ResponseHeaderServlet extends HttpServlet {
 
 //        response.setStatus(HttpServletResponse.SC_FOUND); //302
 //        response.setHeader("Location", "/basic/hello-form.html");
-        response.sendRedirect("/basic/hello-form.html");
+        response.sendRedirect("/templates/basic/hello-form.html");
     }
 }
